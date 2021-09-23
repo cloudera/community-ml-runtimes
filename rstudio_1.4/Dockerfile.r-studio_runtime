@@ -1,0 +1,43 @@
+# Base CML Runtime uses python, not R
+FROM docker.repository.cloudera.com/cdsw/ml-runtime-workbench-python3.7-standard:2021.06.1-b5
+
+# Updated apt
+RUN apt-get update && apt-get upgrade -y
+
+# Setup R Repos
+RUN apt-get install -y --no-install-recommends software-properties-common dirmngr
+RUN curl https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc > /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
+RUN add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
+
+# Install R
+RUN apt-get install -y --no-install-recommends r-base gdebi-core
+
+# Install R Studio
+RUN curl -O https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.4.1717-amd64.deb
+RUN gdebi -n rstudio-server-1.4.1717-amd64.deb
+
+# Configure RStudio to work in CML
+RUN chown -R cdsw:cdsw /var/lib/rstudio-server && chmod -R 777 /var/lib/rstudio-server
+COPY rserver.conf /etc/rstudio/rserver.conf
+COPY rstudio-cml /usr/local/bin/rstudio-cml
+RUN chmod +x /usr/local/bin/rstudio-cml
+
+# Symlink the default editor launcher rstudio
+RUN ln -s /usr/local/bin/rstudio-cml /usr/local/bin/ml-runtime-editor
+
+# Set the ENV and LABEL details for this Runtime
+ENV ML_RUNTIME_EDITOR="RStudio" \ 
+ML_RUNTIME_EDITION="RStudio Community Runtime"	\ 
+ML_RUNTIME_SHORT_VERSION="2021.09" \
+ML_RUNTIME_MAINTENANCE_VERSION="1" \
+ML_RUNTIME_FULL_VERSION="2021.09.1" \
+ML_RUNTIME_DESCRIPTION="Testing RStudio" \
+ML_RUNTIME_KERNEL="R 4.0"
+
+LABEL com.cloudera.ml.runtime.editor=$ML_RUNTIME_EDITOR \
+com.cloudera.ml.runtime.edition=$ML_RUNTIME_EDITION \
+com.cloudera.ml.runtime.full-version=$ML_RUNTIME_FULL_VERSION \
+com.cloudera.ml.runtime.short-version=$ML_RUNTIME_SHORT_VERSION \
+com.cloudera.ml.runtime.maintenance-version=$ML_RUNTIME_MAINTENANCE_VERSION \
+com.cloudera.ml.runtime.description=$ML_RUNTIME_DESCRIPTION \
+com.cloudera.ml.runtime.kernel=$ML_RUNTIME_KERNEL

@@ -1,0 +1,19 @@
+#!/bin/bash
+
+# This saves RStudio's user runtime information to /tmp, which ensures several
+# RStudio sessions can run in the same project simultaneously
+mkdir -p /tmp/rstudio/sessions/active
+mkdir -p /home/cdsw/.rstudio/sessions
+if [ -d /home/cdsw/.rstudio/sessions/active ]; then rm -rf /home/cdsw/.rstudio/sessions/active; fi
+ln -s /tmp/rstudio/sessions/active /home/cdsw/.rstudio/sessions/active
+
+# This ensures RStudio picks up the environment. This may not be necessary if
+# you are installing RStudio Professional. See
+# https://docs.rstudio.com/ide/server-pro/r-sessions.html#customizing-session-launches.
+# SPARK_DIST_CLASSPATH is treated as a special case to workaround a bug in R
+# with very long environment variables.
+env | grep -v ^SPARK_DIST_CLASSPATH >> /usr/local/lib/R/etc/Renviron.site
+echo "Sys.setenv(\"SPARK_DIST_CLASSPATH\"=\"${SPARK_DIST_CLASSPATH}\")" >> /usr/local/lib/R/etc/Rprofile.site
+
+# Now start RStudio
+/usr/sbin/rstudio-server start

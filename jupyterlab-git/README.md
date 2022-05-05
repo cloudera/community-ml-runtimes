@@ -1,21 +1,19 @@
-## Jupyterlab with extensions : Python debugger, Git integration, Language Server Protocol (LSP)
+# Jupyterlab with extensions : Python debugger, Git integration, Language Server Protocol (LSP)
 
 Read carefully the doc for a godd usage of these extensions
 
 
-# Python debugger 
+## Python debugger 
 
 https://jupyterlab.readthedocs.io/en/latest/user/debugger.html
 
 
-# Git Integration
+## Git Integration
 
 https://github.com/jupyterlab/jupyterlab-git
 
 
-# LSP language extension
-
-
+## LSP language extension
 
     - Press Ctrl to get a tooltip with function/class signature, module documentation 
     - Use the context menu entry, or Alt + to jump to definitions/references 
@@ -24,7 +22,10 @@ https://github.com/jupyterlab/jupyterlab-git
     - Function signatures will automatically be displayed
     - Diagnostics panel
 
-    More on : https://github.com/jupyter-lsp/jupyterlab-lsp
+
+More on : 
+    
+https://github.com/jupyter-lsp/jupyterlab-lsp
 
 
 ## Docker build for CML 

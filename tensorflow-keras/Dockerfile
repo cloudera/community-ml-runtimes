@@ -55,13 +55,11 @@ USER root
 # Upgrade packages in the base image
 RUN apt-get update && apt-get upgrade -y && apt-get clean && rm -rf /var/lib/apt/lists/*
 
-# Add packages you want to install in this runtime
-RUN pip install tensorflow
-RUN pip install spicy
-RUN pip install nibabel
-
 # Clone Keras.io repo
-RUN git clone https://github.com/keras-team/keras-io.git /home/keras
+RUN git clone https://github.com/keras-team/keras-io.git /home/keras/keras.io
+
+# Add packages you want to install in this runtime
+RUN pip install -r /home/keras/keras.io/requirements.txt
 
 
 # Override Runtime label and environment variables metadata
@@ -69,7 +67,7 @@ ENV ML_RUNTIME_EDITION="Tensorflow Keras" \
 	ML_RUNTIME_SHORT_VERSION="2022.05" \
 	ML_RUNTIME_MAINTENANCE_VERSION="1" \
     ML_RUNTIME_FULL_VERSION="2022.05.1" \
-    ML_RUNTIME_DESCRIPTION="This runtime includes Tensorflow Keras with code samples in /home/keras"
+    ML_RUNTIME_DESCRIPTION="This runtime includes Tensorflow Keras with code samples"
 
 LABEL com.cloudera.ml.runtime.edition=$ML_RUNTIME_EDITION \
 	  com.cloudera.ml.runtime.full-version=$ML_RUNTIME_FULL_VERSION \

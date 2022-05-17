@@ -26,7 +26,11 @@ This custom ML runtime for Cloudera CML comes preloaded with Tensorflow Keras li
    - Click Create **Project**
    - From your Project, open a new Python 3.7 Workbench session and select the ML runtime
 
-   ### From your Project, open a new Python 3.7 Workbench session and select this ML runtime
+   ### From your Project, open a new Python 3.7 Workbench session and select this ML runtime. 
+   
+   Give the session enough resources as some of the code processing can be resource intensive. To bring the Kears code examples into you CML file view for easy viewing and editing you can open a terminal window in your session and run the following command: 
+   
+   cp -r /home/keras/keras.io /home/cdsw/ 
    
    Code samples are preloaded into /home/keras/examples from https://github.com/keras-team/keras-io and are grouped into the following categories:
    - Computer Vision

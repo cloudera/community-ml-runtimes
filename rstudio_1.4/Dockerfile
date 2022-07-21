@@ -2,7 +2,7 @@
 #
 #  CLOUDERA COMMUNITY RUNTIMES
 #
-# (C) Cloudera, Inc. 2021
+# (C) Cloudera, Inc. 2022
 #  All rights reserved.
 # 
 #  Applicable Open Source License: Apache 2.0 
@@ -45,7 +45,7 @@
 # Note: This particular image will use the Python base image, not R as expected. There is a
 # complication with CML that prevents editors and applications from launching if the CML 
 # version of python isn't present. This should be fixed in a future release.
-FROM docker.repository.cloudera.com/cdsw/ml-runtime-workbench-python3.7-standard:2021.06.1-b5
+FROM docker.repository.cloudera.com/cloudera/cdsw/ml-runtime-workbench-python3.7-standard:2022.04.1-b6
 
 # Updated the images with apt-get
 RUN apt-get update && apt-get upgrade -y
@@ -64,8 +64,8 @@ RUN add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_r
 RUN apt-get install -y r-base-core=4.0.4-1.2004.0
 
 # Install R Studio
-RUN curl -O https://download2.rstudio.org/server/bionic/amd64/rstudio-server-1.4.1717-amd64.deb
-RUN gdebi -n rstudio-server-1.4.1717-amd64.deb
+RUN curl -O https://download2.rstudio.org/server/bionic/amd64/rstudio-server-2022.07.0-548-amd64.deb
+RUN gdebi -n rstudio-server-2022.07.0-548-amd64.deb
 
 # Configure RStudio to work in CML
 # RStudio needs some changes made to the default configuration to work in CML, e.g. 
@@ -81,15 +81,30 @@ RUN chmod +x /usr/local/bin/rstudio-cml
 # from the editors launcher to /usr/local/bin/ml-runtime-editor
 RUN ln -s /usr/local/bin/rstudio-cml /usr/local/bin/ml-runtime-editor
 
+# Install additional R dependencies
+COPY r-runtime-dependencies.txt /build/
+
+RUN \
+    apt-get update && \
+    cat /build/r-runtime-dependencies.txt | \
+      sed '/^$/d; /^#/d; s/#.*$//' | \
+      xargs apt-get install -y --no-install-recommends && \
+    rm -rf /var/lib/apt/lists/* && \
+    rm -rf /build 
+
+# Change permissions to allow env variables to be pushed to Renviron.site file
+# when the rstudio-cml startup file is run
+RUN chmod -R 666 /etc/R/Renviron.site
+
 # Set the ENV and LABEL details for this Runtime
 # The final requirement is to set various labels and environment variables that CML needs 
 # to pick up the Runtime's details. Here the editor is to RStudio
 ENV ML_RUNTIME_EDITOR="RStudio" \ 
 ML_RUNTIME_EDITION="RStudio Community Runtime"	\ 
-ML_RUNTIME_SHORT_VERSION="2021.09" \
-ML_RUNTIME_MAINTENANCE_VERSION="3" \
-ML_RUNTIME_FULL_VERSION="2021.09.3" \
-ML_RUNTIME_DESCRIPTION="Testing RStudio" \
+ML_RUNTIME_SHORT_VERSION="2022.04" \
+ML_RUNTIME_MAINTENANCE_VERSION="8" \
+ML_RUNTIME_FULL_VERSION="2022.04.8" \
+ML_RUNTIME_DESCRIPTION="RStudio Community Runtime" \
 ML_RUNTIME_KERNEL="R 4.0"
 
 LABEL com.cloudera.ml.runtime.editor=$ML_RUNTIME_EDITOR \

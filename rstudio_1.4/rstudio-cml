@@ -57,5 +57,7 @@ ln -s /tmp/rstudio/sessions/active /home/cdsw/.rstudio/sessions/active
 env | grep -v ^SPARK_DIST_CLASSPATH >> /usr/local/lib/R/etc/Renviron.site
 echo "Sys.setenv(\"SPARK_DIST_CLASSPATH\"=\"${SPARK_DIST_CLASSPATH}\")" >> /usr/local/lib/R/etc/Rprofile.site
 
+echo "R_LIBS_USER=/home/cdsw/.local/lib/R/4.0/library" >> /etc/R/Renviron.site
+
 # Now start RStudio
-/usr/sbin/rstudio-server start
+/usr/sbin/rstudio-server start --server-user cdsw

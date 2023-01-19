@@ -80,5 +80,22 @@ The Conda Runtime supports other languages and kernels too.
 For example creating an R environment and to use R notebooks you can follow this guide:
 https://izoda.github.io/site/anaconda/r-jupyter-notebook/
 
+## Known limitations
+The following cml libraries won't be available in the newly created conda environments therefor the CML capabilities that depend on these won't work.
+- [cml library](https://docs.cloudera.com/machine-learning/cloud/mlde/topics/ml-mlde-using-snippet.html) for Data connections
+- [cml library](https://docs.cloudera.com/machine-learning/cloud/distributed-computing/topics/ml-workers-api.html) for distributed workloads
+- [cmlapi library](https://docs.cloudera.com/machine-learning/cloud/api/topics/ml-api-v2.html) for programmatic API access
+- [mlflow library](https://docs.cloudera.com/machine-learning/cloud/experiments/topics/ml-experiments-v2.html) for Experiment tracking
+
+The kernels and all packages within the conda environment is persisted in the user's home directory which is backed up in NFS, this increases storage requirements for user Projects and have unknown performance implications.
+
+Jobs, Applications and Models use the ML Runtime's python kernel, they don't automatically pick up the right conda environments for the workloads. There are workarounds that you need to apply to execute your code with the conda environment of your choice.
+
 ## Troubleshooting
 To troubleshoot issues you can use the `jupyter kernelspec` command line utility.
+
+
+# Workbench Conda Runtimes
+This runtime installs the conda package manager and configures it to be available for installing packages.
+
+TODO: configure the Workbench to pick up the conda installed packages.

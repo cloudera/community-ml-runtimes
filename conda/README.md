@@ -13,7 +13,7 @@ A pre-built version of the JupyterLab Conda runtime is published to:
 
 
 
-# Conda in JupyterLab
+# JupyterLab Conda Runtimes
 The Conda ML Runtime is configured with the conda-forge channel by default.
 ```
 cdsw@ry8tgfl7c2ncx03s:~$ conda config --show channels
@@ -21,6 +21,7 @@ channels:
   - conda-forge
 ```
 
+## Example setup
 You can create new conda environments with the conda create command:
 ```
 cdsw@nc4rzkyobsy592kv:~$ conda create --name condapy3.10
@@ -30,7 +31,6 @@ Solving environment: done
 ## Package Plan ##
 
   environment location: /home/cdsw/.conda/envs/condapy3.10
-
 
 
 Proceed ([y]/n)? y
@@ -71,6 +71,14 @@ Register the kernel spec with Jupyter. The --name= argument will set the name yo
 Installed kernelspec condapy3.10 in /home/cdsw/.local/share/jupyter/kernels/condapy3.10
 ```
 
-To troubleshoot issues the `jupyter kernelspec` command line utility is useful.
+If the new kernel is not showing up automatically executing the following command triggers a refresh.
+```jupyter kernelspec list```
 
+## Other kernels
+The Conda Runtime supports other languages and kernels too.
 
+For example creating an R environment and to use R notebooks you can follow this guide:
+https://izoda.github.io/site/anaconda/r-jupyter-notebook/
+
+## Troubleshooting
+To troubleshoot issues you can use the `jupyter kernelspec` command line utility.

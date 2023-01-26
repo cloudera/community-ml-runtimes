@@ -22,7 +22,7 @@ channels:
 ```
 
 ## Example setup
-You can create new conda environments with the conda create command:
+You can create a new conda environment in the Project's home directory (`/home/cdsw/`) with the conda create command:
 ```
 cdsw@nc4rzkyobsy592kv:~$ conda create --name condapy3.10
 Collecting package metadata (current_repodata.json): done

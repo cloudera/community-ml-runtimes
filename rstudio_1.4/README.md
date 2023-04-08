@@ -1,4 +1,4 @@
-# RStudio 1.4 Editor for CML Runtimes
+# RStudio Editor for CML Runtimes
 
 This directory contains the scripts needed to build an ML Runtime that uses RStudio 2022.07.0-548 as the editor in Cloudera Machine Learning (CML).
 

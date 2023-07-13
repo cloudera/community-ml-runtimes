@@ -1,0 +1,668 @@
+================================================================================
+================================================================================
+
+                     Third-Party Software for rsync-runtime
+
+--------------------------------------------------------------------------------
+
+
+The product or component covered by this notice file is subject to copyright owned by Cloudera, the Apache Software Foundation or other third parties, as applicable, and the copyright owner reserves all rights.
+
+The following notices and licenses apply to various third party software packages, including open source software packages, which are distributed with the product identified in this file or accompanying this file.  Such product (i) may not include all of the referenced third party software packages or include only a portion of a given package and (ii) may also include other components, which may contain additional third party software packages as identified in their separate respective notice files.
+
+To the extent required by the license associated with a third party software package, Cloudera, Inc. will provide a copy of the third party software package’s source code upon request and at a reasonable fee.  All requests for source code must be made in writing and mailed to "Cloudera, Inc., ATTN: Legal Dept.,5470 Great America Pkwy, Santa Clara, CA 95054" and include the following information: (i) the name and version number of the covered binary, (ii) name and the version number of the Cloudera product containing the covered binary, (iii) your name, (iv) your company or organization name (if applicable), (v) the license under which you are requesting the source code to be provided, and (vi) your return mailing and email address (if available).
+
+The following 3rd-party software packages may be used by or distributed with rsync-runtime. Any information relevant to third-party vendors listed below are collected using common, reasonable means.
+
+Date generated: 2023-7-13
+
+Revision ID: sha256:92144c5100794011d2d882671a2499d3e14c71ff2747073b7202a29e20a17797
+
+================================================================================
+================================================================================
+
+
+
+
+
+================================================================================
+
+                                  Dependencies
+
+================================================================================
+
+
+
+--------------------------------------------------------------------------------
+Package Title: adduser (3.118ubuntu2, all)
+
+Package Locator: deb+adduser#ubuntu#20.04$all#3.118ubuntu2
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: adduser#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: apt (2.0.2ubuntu0.1, amd64)
+
+Package Locator: deb+apt#ubuntu#20.04$amd64#2.0.2ubuntu0.1
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: apt#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: apt (2.0.9, amd64)
+
+Package Locator: deb+apt#ubuntu#20.04$amd64#2.0.9
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: apt#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: apt-transport-https (0:2.0.9, all)
+
+Package Locator: deb+apt-transport-https#ubuntu#20.04$all#0:2.0.9
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: apt-transport-https#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: base-files (0:11ubuntu5.7, amd64)
+
+Package Locator: deb+base-files#ubuntu#20.04$amd64#0:11ubuntu5.7
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: base-files#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: base-files (11ubuntu5, amd64)
+
+Package Locator: deb+base-files#ubuntu#20.04$amd64#11ubuntu5
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: base-files#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: base-passwd (3.5.47, amd64)
+
+Package Locator: deb+base-passwd#ubuntu#20.04$amd64#3.5.47
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: base-passwd#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: bash (5.0-6ubuntu1.2, amd64)
+
+Package Locator: deb+bash#ubuntu#20.04$amd64#5.0-6ubuntu1.2
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: bash#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: bash (5.0-6ubuntu1, amd64)
+
+Package Locator: deb+bash#ubuntu#20.04$amd64#5.0-6ubuntu1
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: bash#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: bind9-host (1:9.16.1-0ubuntu2.12, amd64)
+
+Package Locator: deb+bind9-host#ubuntu#20.04$amd64#1:9.16.1-0ubuntu2.12
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: bind9-host#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: bind9-libs (1:9.16.1-0ubuntu2.12, amd64)
+
+Package Locator: deb+bind9-libs#ubuntu#20.04$amd64#1:9.16.1-0ubuntu2.12
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: bind9-libs#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: binutils (0:2.34-6ubuntu1.4, amd64)
+
+Package Locator: deb+binutils#ubuntu#20.04$amd64#0:2.34-6ubuntu1.4
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: binutils#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: binutils-common (0:2.34-6ubuntu1.4, amd64)
+
+Package Locator: deb+binutils-common#ubuntu#20.04$amd64#0:2.34-6ubuntu1.4
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: binutils-common#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: binutils-x86-64-linux-gnu (0:2.34-6ubuntu1.4, amd64)
+
+Package Locator: deb+binutils-x86-64-linux-gnu#ubuntu#20.04$amd64#0:2.34-6ubuntu1.4
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: binutils-x86-64-linux-gnu#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: bsdutils (1:2.34-0.1ubuntu9, amd64)
+
+Package Locator: deb+bsdutils#ubuntu#20.04$amd64#1:2.34-0.1ubuntu9
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: bsdutils#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: bsdutils (1:2.34-0.1ubuntu9.3, amd64)
+
+Package Locator: deb+bsdutils#ubuntu#20.04$amd64#1:2.34-0.1ubuntu9.3
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: bsdutils#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: bzip2 (1.0.8-2, amd64)
+
+Package Locator: deb+bzip2#ubuntu#20.04$amd64#1.0.8-2
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: bzip2#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: ca-certificates (0:20211016ubuntu0.20.04.1, all)
+
+Package Locator: deb+ca-certificates#ubuntu#20.04$all#0:20211016ubuntu0.20.04.1
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: ca-certificates#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: comerr-dev (0:2.1-1.45.5-2ubuntu1.1, amd64)
+
+Package Locator: deb+comerr-dev#ubuntu#20.04$amd64#0:2.1-1.45.5-2ubuntu1.1
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: comerr-dev#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: coreutils (8.30-3ubuntu2, amd64)
+
+Package Locator: deb+coreutils#ubuntu#20.04$amd64#8.30-3ubuntu2
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: coreutils#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: cpio (2.13+dfsg-2ubuntu0.3, amd64)
+
+Package Locator: deb+cpio#ubuntu#20.04$amd64#2.13+dfsg-2ubuntu0.3
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: cpio#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: cpp (4:9.3.0-1ubuntu2, amd64)
+
+Package Locator: deb+cpp#ubuntu#20.04$amd64#4:9.3.0-1ubuntu2
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: cpp#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: cpp-9 (9.4.0-1ubuntu1~20.04.1, amd64)
+
+Package Locator: deb+cpp-9#ubuntu#20.04$amd64#9.4.0-1ubuntu1~20.04.1
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: cpp-9#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: curl (0:7.68.0-1ubuntu2.16, amd64)
+
+Package Locator: deb+curl#ubuntu#20.04$amd64#0:7.68.0-1ubuntu2.16
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: curl#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: dash (0.5.10.2-6, amd64)
+
+Package Locator: deb+dash#ubuntu#20.04$amd64#0.5.10.2-6
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: dash#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: debconf (1.5.73, all)
+
+Package Locator: deb+debconf#ubuntu#20.04$all#1.5.73
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: debconf#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: debianutils (4.9.1, amd64)
+
+Package Locator: deb+debianutils#ubuntu#20.04$amd64#4.9.1
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: debianutils#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: diffutils (1:3.7-3, amd64)
+
+Package Locator: deb+diffutils#ubuntu#20.04$amd64#1:3.7-3
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: diffutils#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: dpkg (1.19.7ubuntu3, amd64)
+
+Package Locator: deb+dpkg#ubuntu#20.04$amd64#1.19.7ubuntu3
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: dpkg#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: dpkg (1.19.7ubuntu3.2, amd64)
+
+Package Locator: deb+dpkg#ubuntu#20.04$amd64#1.19.7ubuntu3.2
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: dpkg#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: e2fsprogs (1.45.5-2ubuntu1, amd64)
+
+Package Locator: deb+e2fsprogs#ubuntu#20.04$amd64#1.45.5-2ubuntu1
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: e2fsprogs#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: e2fsprogs (1.45.5-2ubuntu1.1, amd64)
+
+Package Locator: deb+e2fsprogs#ubuntu#20.04$amd64#1.45.5-2ubuntu1.1
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: e2fsprogs#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: emacs-bin-common (1:26.3+1-1ubuntu2, amd64)
+
+Package Locator: deb+emacs-bin-common#ubuntu#20.04$amd64#1:26.3+1-1ubuntu2
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: emacs-bin-common#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: emacs-common (1:26.3+1-1ubuntu2, all)
+
+Package Locator: deb+emacs-common#ubuntu#20.04$all#1:26.3+1-1ubuntu2
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: emacs-common#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: emacs-nox (1:26.3+1-1ubuntu2, amd64)
+
+Package Locator: deb+emacs-nox#ubuntu#20.04$amd64#1:26.3+1-1ubuntu2
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: emacs-nox#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: emacsen-common (3.0.4, all)
+
+Package Locator: deb+emacsen-common#ubuntu#20.04$all#3.0.4
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: emacsen-common#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: fdisk (2.34-0.1ubuntu9, amd64)
+
+Package Locator: deb+fdisk#ubuntu#20.04$amd64#2.34-0.1ubuntu9
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: fdisk#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: fdisk (2.34-0.1ubuntu9.3, amd64)
+
+Package Locator: deb+fdisk#ubuntu#20.04$amd64#2.34-0.1ubuntu9.3
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: fdisk#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: findutils (4.7.0-1ubuntu1, amd64)
+
+Package Locator: deb+findutils#ubuntu#20.04$amd64#4.7.0-1ubuntu1
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: findutils#ubuntu#20.04
+
+--------------------------------------------------------------------------------
+Package Title: fonts-roboto (2:0~20170802-3, all)
+
+Package Locator: deb+fonts-roboto#ubuntu#20.04$all#2:0~20170802-3
+--------------------------------------------------------------------------------
+
+* Package Info *
+
+Dependency Path: fonts-roboto#ubuntu#20.04
+
+
+================================================================================
+                                    Licenses
+
+================================================================================
+
+* GPL-2.0-only *
+
+		    GNU GENERAL PUBLIC LICENSE
+		       Version 2, June 1991
+
+ Copyright (C) 1989, 1991 Free Software Foundation, Inc.
+                          675 Mass Ave, Cambridge, MA 02139, USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+			    Preamble
+
+  The licenses for most software are designed to take away your
+freedom to share and change it.  By contrast, the GNU General Public
+License is intended to guarantee your f...
+
+* GPL-2.0-only *
+
+		    GNU GENERAL PUBLIC LICENSE
+		       Version 2, June 1991
+
+ Copyright (C) 1989, 1991 Free Software Foundation, Inc.
+                       59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+			    Preamble
+
+  The licenses for most software are designed to take away your
+freedom to share and change it.  By contrast, the GNU General Public
+License is intended to gu...
+
+* GPL-2.0-only *
+
+		    GNU GENERAL PUBLIC LICENSE
+		       Version 2, June 1991
+
+ Copyright (C) 1989, 1991 Free Software Foundation, Inc.
+     59 Temple Place, Suite 330, Boston, MA  02111-1307  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+			    Preamble
+
+  The licenses for most software are designed to take away your
+freedom to share and change it.  By contrast, the GNU General Public
+License is intended to guarantee your freed...
+
+* GPL-2.0-only *
+
+		    GNU GENERAL PUBLIC LICENSE
+		       Version 2, June 1991
+
+ Copyright (C) 1989, 1991 Free Software Foundation, Inc. <http://fsf.org/>
+     51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+			    Preamble
+
+  The licenses for most software are designed to take away your
+freedom to share and change it.  By contrast, the GNU General Public
+License is intended to g...
+
+* GPL-3.0-only *
+
+		    GNU GENERAL PUBLIC LICENSE
+		       Version 3, 29 June 2007
+
+ Copyright (C) 2007, 2011 Free Software Foundation, Inc. <http://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+			    Preamble
+
+  The GNU General Public License is a free, copyleft license for
+software and other kinds of works.
+
+  The licenses for most software and other practical works are designed
+to take away your freedom to share and chan...
+
+* LGPL-3.0-only *
+
+		   GNU LESSER GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+
+  This version of the GNU Lesser General Public License incorporates
+the terms and conditions of version 3 of the GNU General Public
+License, supplemented by the additional permissions listed below.
+
+  0. Additional De...
+
+* LGPL-2.1-only *
+
+		  GNU LESSER GENERAL PUBLIC LICENSE
+		       Version 2.1, February 1999
+
+ Copyright (C) 1991, 1999 Free Software Foundation, Inc. <http://fsf.org/>
+     51 Franklin St, Fifth Floor, Boston, MA  02110-1301  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+[This is the first released version of the Lesser GPL.  It also counts
+ as the successor of the GNU Library Public License, version 2, hence
+ the version number 2....
+
+* LGPL-2.1-only *
+
+
+                  GNU LESSER GENERAL PUBLIC LICENSE
+                       Version 2.1, February 1999
+
+ Copyright (C) 1991, 1999 Free Software Foundation, Inc.
+     51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+[This is the first released version of the Lesser GPL.  It also counts
+ as the successor of the GNU Library Public License, version 2, hence
+ the ve...
+
+* GPL-3.0-only *
+
+                    GNU GENERAL PUBLIC LICENSE
+                       Version 3, 29 June 2007
+
+ Copyright (C) 2007 Free Software Foundation, Inc. <http://fsf.org/>
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+                            Preamble
+
+  The GNU General Public License is a free, copyleft license for
+software and other kinds of works.
+
+  The licenses for most software and other practical works are designed
+...
+
+* LGPL-2.1-only *
+
+                  GNU LESSER GENERAL PUBLIC LICENSE
+                       Version 2.1, February 1999
+
+ Copyright (C) 1991, 1999 Free Software Foundation, Inc.
+ 51 Franklin Street, Fifth Floor, Boston, MA  02110-1301  USA
+ Everyone is permitted to copy and distribute verbatim copies
+ of this license document, but changing it is not allowed.
+
+[This is the first released version of the Lesser GPL.  It also counts
+ as the successor of the GNU Library Public License, version 2, hence
+ the version...
+
+* cmu-computing-services *
+
+/* CMU libsasl
+ * Tim Martin
+ * Rob Earhart
+ * Rob Siemborski
+ */
+/* 
+ * Copyright (c) 1998-2003 Carnegie Mellon University.  All rights reserved.
+ *
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that the following conditions
+ * are met:
+ *
+ * 1. Redistributions of source code must retain the above copyright
+ *    notice, this list of conditions and the following disclaimer. 
+ *
+ * 2. Redistributions in binary form must reproduce...
+
+* NRL *
+
+/*********************************************************************
+ *
+ * AUTHORIZATION TO USE AND DISTRIBUTE
+ * 
+ * Redistribution and use in source and binary forms, with or without
+ * modification, are permitted provided that: 
+ *
+ * (1) source code distributions retain this paragraph in its entirety, 
+ *  
+ * (2) distributions including binary code include this paragraph in
+ *     its entirety in the documentation or other materials provided 
+ *     with the distribution.
+ * 
+ *      "...
+
+* AFL-2.1 *
+
+The Academic Free License
+v.2.1 This Academic Free License (the "License") applies to any original work of authorship (the "Original Work") whose owner (the "Licensor") has placed the following notice immediately following the copyright notice for the Original Work:
+Licensed under the Academic Free License version 2.1
+   1) Grant of Copyright License. Licensor hereby grants You a world-wide, royalty-free, non-exclusive, perpetual, sublicenseable license to do the following:
+      a) to reprod...
+
+* AGPL-3.0-only *
+
+GNU AFFERO GENERAL PUBLIC LICENSE
+Version 3, 19 November 2007
+Copyright (C) 2007 Free Software Foundation, Inc. <http s ://fsf.org/>
+Everyone is permitted to copy and distribute verbatim copies of this license document, but changing it is not allowed.
+Preamble
+The GNU Affero General Public License is a free, copyleft license for software and other kinds of works, specifically designed to ensure cooperation with the community in the case of network server software.
+The licenses for most softwa...
+
+* Apache-2.0 *
+
+Apache License
+Version 2.0, January 2004
+http://www.apache.org/licenses/ TERMS AND CONDITIONS FOR USE, REPRODUCTION, AND DISTRIBUTION
+   1. Definitions.
+      
+      "License" shall mean the terms and conditions for use, reproduction, and distribution as defined by Sections 1 through 9 of this document.
+      
+      "Licensor" shall mean the copyright owner or entity authorized by the copyright owner that is granting the License.
+      
+      "Legal Entity" shall mean the union of the acting ...
+
+
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------

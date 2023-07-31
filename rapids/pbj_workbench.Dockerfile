@@ -1,6 +1,10 @@
-FROM rapidsai/rapidsai:22.12-cuda11.5-base-ubuntu20.04-py3.9
+FROM rapidsai/rapidsai:23.06-cuda11.8-base-ubuntu20.04-py3.10
 
 USER root
+
+# Install Runtime infra dependencies
+RUN apt-get update && apt-get install -y --no-install-recommends \
+  krb5-user ssh xz-utils
 
 # Configure pip to install packages under /usr/local
 # when building the Runtime image
@@ -30,8 +34,9 @@ RUN for i in /etc /etc/alternatives; do \
 
 RUN \
   source /opt/conda/etc/profile.d/conda.sh && \
+  rm -rf ~/.condarc && \
   conda activate rapids && \
-  conda install --yes --no-update-deps --channel conda-forge --override-channels py4j jupyter_kernel_gateway==2.5.1
+  mamba install --yes py4j=0.10.9.7 jupyter_kernel_gateway==2.5.2
 
 # Final touches are done by the cdsw user to avoid
 # permission issues in CML
@@ -50,13 +55,13 @@ RUN /bin/bash -c "echo -e '[install]\nuser = true'" > /etc/pip.conf
 #ML_RUNTIME_EDITOR and ML_RUNTIME_METADATA_VERSION must not be changed.
 ENV ML_RUNTIME_EDITOR="PBJ Workbench" \
   ML_RUNTIME_METADATA_VERSION="2" \
-  ML_RUNTIME_KERNEL="Python 3.9" \
-  ML_RUNTIME_EDITION="RAPIDS" \
-  ML_RUNTIME_SHORT_VERSION="1.0" \
-  ML_RUNTIME_MAINTENANCE_VERSION="2" \
+  ML_RUNTIME_KERNEL="Python 3.10" \
+  ML_RUNTIME_EDITION="Community RAPIDS" \
+  ML_RUNTIME_SHORT_VERSION="2023.06" \
+  ML_RUNTIME_MAINTENANCE_VERSION="7" \
   ML_RUNTIME_JUPYTER_KERNEL_GATEWAY_CMD="/usr/local/bin/jupyter kernelgateway" \
   ML_RUNTIME_JUPYTER_KERNEL_NAME="python3" \
-  ML_RUNTIME_DESCRIPTION="RAPIDS Runtime"
+  ML_RUNTIME_DESCRIPTION="Community RAPIDS Runtime"
 
 
 ENV ML_RUNTIME_FULL_VERSION="$ML_RUNTIME_SHORT_VERSION.$ML_RUNTIME_MAINTENANCE_VERSION"

@@ -2,7 +2,7 @@
 
 # VsCode for ML runtimes
 
-docker build -t <my docker repos>/vscode:2023.08.1 . -f Dockerfile-runtime-pbj-python39
+docker build -t <my docker repos>/vscode:2023.08.1 . -f Dockerfile-runtime-pbj-python310
 
 CML Build based on "docker.repository.cloudera.com/cdsw/ml-runtime-workbench-python3.7-standard:2021.09.1-b5" uploaded on : 
 

@@ -2,7 +2,7 @@
 #
 #  CLOUDERA COMMUNITY RUNTIMES
 #
-# (C) Cloudera, Inc. 2021
+# (C) Cloudera, Inc. 2023
 #  All rights reserved.
 # 
 #  Applicable Open Source License: Apache 2.0 
@@ -42,20 +42,35 @@
 
 
 # Start with a Base CML Runtime & upgrade
-# Note: This particular image will use the Python base image, not R as expected. There is a
-# complication with CML that prevents editors and applications from launching if the CML 
-# version of python isn't present. This should be fixed in a future release.
-FROM docker.repository.cloudera.com/cdsw/engine:13
+# Note: This particular image will use the Python base image
+FROM docker.repository.cloudera.com/cloudera/cdsw/ml-runtime-pbj-workbench-python3.10-standard:2023.05.2-b7
 
-RUN  apt clean && rm -rf /var/lib/apt/lists/*
+RUN apt update && apt upgrade -y && apt clean && rm -rf /var/lib/apt/lists/*
 
 # Install code-server
 # https://github.com/coder/code-server
 # Install latest version. See https://github.com/coder/code-server/blob/main/install.sh for details
-RUN curl -fsSL https://code-server.dev/install.sh | sh -s --  --version 4.2.0
+RUN curl -fsSL https://code-server.dev/install.sh | sh -s --  --version 4.16.1
 
 
 # Create launch script and symlink to the default editor launcher 
 RUN printf "#!/bin/bash\n/usr/bin/code-server --auth=none --bind-addr=127.0.0.1:8090 --disable-telemetry" > /usr/local/bin/vscode
 
 RUN chmod +x /usr/local/bin/vscode
+RUN ln -s /usr/local/bin/vscode /usr/local/bin/ml-runtime-editor
+
+
+# Override Runtime label and environment variables metadata
+ENV ML_RUNTIME_EDITOR="VsCode" \
+    ML_RUNTIME_EDITION="Community" \
+    ML_RUNTIME_SHORT_VERSION="2023.08" \
+    ML_RUNTIME_MAINTENANCE_VERSION="1" \
+    ML_RUNTIME_FULL_VERSION="2023.08.1" \
+    ML_RUNTIME_DESCRIPTION="This runtime includes VsCode editor v4.16.1 and is based on PBJ Workbench image with Python 3.10"
+
+LABEL com.cloudera.ml.runtime.editor=$ML_RUNTIME_EDITOR \
+      com.cloudera.ml.runtime.edition=$ML_RUNTIME_EDITION \
+      com.cloudera.ml.runtime.full-version=$ML_RUNTIME_FULL_VERSION \
+      com.cloudera.ml.runtime.short-version=$ML_RUNTIME_SHORT_VERSION \
+      com.cloudera.ml.runtime.maintenance-version=$ML_RUNTIME_MAINTENANCE_VERSION \
+      com.cloudera.ml.runtime.description=$ML_RUNTIME_DESCRIPTION

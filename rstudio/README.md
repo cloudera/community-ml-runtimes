@@ -6,5 +6,9 @@ A prebuilt version has already been upload to the Github Container Registry and 
 
 `peterableda/rstudio-cloudera-runtime:2022.04-8`
 
+Latest build RStudio 2023.09.1-494 - R 4.3.2 is available on:
+
+`ghcr.io/oliviermeignan/rstudio-cloudera-runtime:2023.12-9`
+
 For more details on this process and how to add this image to CML, please see this Cloudera Community Article:
 https://community.cloudera.com/t5/Community-Articles/Using-RStudio-as-an-Editor-with-ML-Runtimes/ta-p/325166

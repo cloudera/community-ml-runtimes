@@ -46,13 +46,13 @@ USER root
 # https://github.com/phusion/baseimage-docker/issues/319
 ENV DEBIAN_FRONTEND noninteractive
 ENV DEBCONF_NOWARNINGS="yes"
-ENV R_VERSION 4.3.1
+ENV R_VERSION 4.3.2
 
 # Install Python
 # Note that the package python-is-python3 will alias python3 as python
 RUN apt-get update && apt-get dist-upgrade -y
-RUN apt-get install -y software-properties-common wget ssh xz-utils krb5-user
-RUN apt-get install -y --no-install-recommends python3 python3-pip python-is-python3 python3-venv
+RUN apt-get install -y --no-install-recommends software-properties-common wget ssh xz-utils krb5-user curl git libkrb5-dev
+RUN apt-get install -y --no-install-recommends python3.10 python3.10-dev python3-pip python-is-python3 python3-venv
 
 # https://stackoverflow.com/questions/43356982/docker-python-set-utf-8-locale
 RUN apt-get -y install  --no-install-recommends locales
@@ -160,25 +160,26 @@ RUN /bin/bash -c "echo -e '[install]\nuser = true'" > /etc/pip.conf
 
 # Set Runtime label and environment variables metadata
 #ML_RUNTIME_EDITOR and ML_RUNTIME_METADATA_VERSION must not be changed.
-ENV ML_RUNTIME_EDITOR="PBJ Workbench" \
+ENV ML_RUNTIME_EDITOR="RStudio" \
     ML_RUNTIME_METADATA_VERSION="2" \
-    ML_RUNTIME_KERNEL="Python 3.10" \
+    ML_RUNTIME_KERNEL="R "${R_VERSION} \
     ML_RUNTIME_EDITION="Custom Edition" \
-    ML_RUNTIME_SHORT_VERSION="1.0" \
-    ML_RUNTIME_MAINTENANCE_VERSION="1" \
+    ML_RUNTIME_SHORT_VERSION="2023.12" \
+    ML_RUNTIME_MAINTENANCE_VERSION="4" \
+    ML_RUNTIME_FULL_VERSION="2023.12."${ML_RUNTIME_MAINTENANCE_VERSION} \
     ML_RUNTIME_JUPYTER_KERNEL_GATEWAY_CMD="/usr/local/bin/jupyter kernelgateway" \
     ML_RUNTIME_JUPYTER_KERNEL_NAME="python3" \
-    ML_RUNTIME_DESCRIPTION="My first Custom PBJ Runtime"
+    ML_RUNTIME_DESCRIPTION="RStudio Community Runtime"
           
 
 ENV ML_RUNTIME_FULL_VERSION="$ML_RUNTIME_SHORT_VERSION.$ML_RUNTIME_MAINTENANCE_VERSION" 
 
 LABEL com.cloudera.ml.runtime.editor=$ML_RUNTIME_EDITOR \
+      com.cloudera.ml.runtime.runtime-metadata-version=$ML_RUNTIME_METADATA_VERSION \
 	    com.cloudera.ml.runtime.kernel=$ML_RUNTIME_KERNEL \
 	    com.cloudera.ml.runtime.edition=$ML_RUNTIME_EDITION \
-	    com.cloudera.ml.runtime.full-version=$ML_RUNTIME_FULL_VERSION \
       com.cloudera.ml.runtime.short-version=$ML_RUNTIME_SHORT_VERSION \
       com.cloudera.ml.runtime.maintenance-version=$ML_RUNTIME_MAINTENANCE_VERSION \
-      com.cloudera.ml.runtime.description=$ML_RUNTIME_DESCRIPTION \
-      com.cloudera.ml.runtime.runtime-metadata-version=$ML_RUNTIME_METADATA_VERSION
+	    com.cloudera.ml.runtime.full-version=$ML_RUNTIME_FULL_VERSION \
+      com.cloudera.ml.runtime.description=$ML_RUNTIME_DESCRIPTION
 

@@ -12,8 +12,8 @@ gsfonts
 libblas-dev
 libbz2-1.0
 libcurl4
-# s/libicu63/libicu66. rocker uses older debian.
-libicu66
+# s/libicu66/libicu70. # In Ubuntu 22.04 has been renamed to libicu70
+libicu70
 # s/libjpeg62-turbo/libturbojpeg. rocker uses older debian.
 libturbojpeg
 libopenblas-dev

@@ -60,6 +60,13 @@ RUN sed -i 's/# en_US.UTF-8 UTF-8/en_US.UTF-8 UTF-8/g' /etc/locale.gen
 RUN locale-gen
 ENV LANG="en_US.UTF-8" LC_ALL="en_US.UTF-8"
 
+# Still required by Sparklyr in Ubuntu 22.04
+# https://askubuntu.com/questions/1424442/libssl1-1-is-deprecated-in-ubuntu-22-04-what-to-do-now
+RUN curl -O http://security.ubuntu.com/ubuntu/pool/main/o/openssl/libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
+RUN dpkg -i libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
+RUN rm libssl1.1_1.1.1f-1ubuntu2.20_amd64.deb
+
+
 # Configure pip to install packages under /usr/local
 # when building the Runtime image
 RUN pip3 config set install.user false
@@ -126,9 +133,6 @@ RUN ln -s /usr/local/bin/rstudio-cml /usr/local/bin/ml-runtime-editor
 # Install additional R dependencies
 COPY r-runtime-dependencies.txt /build/
 
-# Fix: E: Unable to locate package libicu66 (in Ubuntu 22.04 has been renamed to libicu70)
-RUN sed -i 's/libicu66/libicu70/g' /build/r-runtime-dependencies.txt
-
 # Build dependencies
 RUN \
     apt-get update && \
@@ -165,12 +169,10 @@ ENV ML_RUNTIME_EDITOR="RStudio" \
     ML_RUNTIME_KERNEL="R "${R_VERSION} \
     ML_RUNTIME_EDITION="Custom Edition" \
     ML_RUNTIME_SHORT_VERSION="2023.12" \
-    ML_RUNTIME_MAINTENANCE_VERSION="4" \
-    ML_RUNTIME_FULL_VERSION="2023.12."${ML_RUNTIME_MAINTENANCE_VERSION} \
+    ML_RUNTIME_MAINTENANCE_VERSION="5" \
     ML_RUNTIME_JUPYTER_KERNEL_GATEWAY_CMD="/usr/local/bin/jupyter kernelgateway" \
     ML_RUNTIME_JUPYTER_KERNEL_NAME="python3" \
-    ML_RUNTIME_DESCRIPTION="RStudio Community Runtime"
-          
+    ML_RUNTIME_DESCRIPTION="RStudio Community Runtime"  
 
 ENV ML_RUNTIME_FULL_VERSION="$ML_RUNTIME_SHORT_VERSION.$ML_RUNTIME_MAINTENANCE_VERSION" 
 

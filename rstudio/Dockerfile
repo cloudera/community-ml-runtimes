@@ -143,7 +143,7 @@ RUN for i in /bin /var /etc /opt /var/lib/dpkg/ /sbin /usr /home /home/dataiku /
  fi; \
  done
 
-# Set the ENV and LABEL details for this Runtime
+# Set the ENV and LABEL details for this  Runtime
 # The final requirement is to set various labels and environment variables that CML needs
 # to pick up the Runtime's details. Here the editor is to RStudio
 ENV ML_RUNTIME_EDITOR="RStudio" \

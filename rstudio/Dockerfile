@@ -2,7 +2,7 @@
 #  
 #  CLOUDERA COMMUNITY RUNTIMES
 #
-# (C) Cloudera, Inc. 2021
+# (C) Cloudera, Inc. 2024
 #  All rights reserved.
 #
 #  Applicable Open Source License: Apache 2.0
@@ -43,72 +43,19 @@
 # Note: This particular image will use the Python base image, not R as expected. There is a
 # complication with CML that prevents editors and applications from launching if the CML
 # version of python isn't present. This should be fixed in a future release.
-FROM docker.repository.cloudera.com/cloudera/cdsw/ml-runtime-pbj-workbench-r4.3-standard:2023.08.2-b8
+FROM docker.repository.cloudera.com/cloudera/cdsw/ml-runtime-pbj-workbench-r4.3-standard:2024.02.1-b4
 # Updated the images with apt-get
-RUN apt-get update && apt-get upgrade -y && apt-get install make
-# Update the images with apt-get
-RUN apt-get update && apt-get upgrade -y
-#Install Dependencies
-RUN apt-get install --no-install-recommends -y apt-utils \
-        software-properties-common \
-        dirmngr \
-        gdebi-core \
-    bash-completion \
-    ca-certificates \
-        cmake \
-    file \
-    fonts-texgyre \
-    g++ \
-    git \
-    gfortran \
-    gsfonts \
-    libblas-dev \
-    libbz2-* \
-    libcurl4 \
-    libfontconfig1-dev \
-    libcurl4-openssl-dev \
-    libcairo2-dev \
-    libfontconfig1-dev \
-    libfribidi-dev \
-    libfreetype6-dev \
-    libgit2-dev \
-    libfontconfig1-dev \
-    libxml2-dev \
-    libharfbuzz-dev \
-    "libicu[0-9][0-9]" \
-    libjpeg-turbo* \
-    libjpeg-dev \
-    liblapack-dev \
-    liblzma* \
-    libpcre2* \
-    libpcre3-dev \
-    libpangocairo-* \
-    libpango1.0-dev \
-        libnlopt-dev \
-    libpng16* \
-    libpng-dev \
-    libreadline8\
-    libtiff* \
-    libx11-dev \
-    libxt-dev \
-    libxml2 \
-    libxml2-dev \
-    make \
-        perl \
-        tzdata \
-    unzip \
-    zip \
-    zlib1g \
-    wget && \
-    rm -rf /var/lib/apt/lists/*
+RUN apt-get update && apt-get upgrade -y && apt-get install make && apt update
+
+
 # Setup R Repos
 RUN apt-get install -y --no-install-recommends software-properties-common dirmngr gdebi-core
 RUN curl https://cloud.r-project.org/bin/linux/ubuntu/marutter_pubkey.asc > /etc/apt/trusted.gpg.d/cran_ubuntu_key.asc
 RUN add-apt-repository "deb https://cloud.r-project.org/bin/linux/ubuntu $(lsb_release -cs)-cran40/"
 
 # Install R Studio
-RUN curl -O https://download2.rstudio.org/server/focal/amd64/rstudio-server-2023.09.1-494-amd64.deb
-RUN gdebi -n rstudio-server-2023.09.1-494-amd64.deb
+RUN curl -O https://download2.rstudio.org/server/focal/amd64/rstudio-server-2023.12.1-402-amd64.deb
+RUN gdebi -n rstudio-server-2023.12.1-402-amd64.deb
 
 
 # Configure RStudio to work in CML
@@ -118,25 +65,32 @@ RUN chown -R cdsw:cdsw /var/lib/rstudio-server && chmod -R 777 /var/lib/rstudio-
 COPY rserver.conf /etc/rstudio/rserver.conf
 COPY rstudio-cml /usr/local/bin/rstudio-cml
 RUN chmod +x /usr/local/bin/rstudio-cml
+
 # Create a Symlink to the default editor launcher
 # This is the main requirement to get CML to launch a different editor. Create a symlink
 # from the editors launcher to /usr/local/bin/ml-runtime-editor
 RUN ln -s /usr/local/bin/rstudio-cml /usr/local/bin/ml-runtime-editor
 RUN export PATH=$PATH:/home/cdsw/R/x86_64-pc-linux-gnu-library/4.1
 USER root
+
 # MLX-50 Allow the engine image to be run as user cdsw upon startup.
 # To do this we must 'chmod 777' /etc related directories.
-RUN for i in /etc /var /etc/alternatives /var/lib/dpkg/ /home /home/dataiku /runtime-addons; do \
+RUN for i in /etc /var /etc/alternatives /var/lib/dpkg/ /home /runtime-addons; do \
  if [ -d ${i} ]; then chmod 777 ${i}; fi; \
  done
+
 # DSE-11162 Base engine changes to support runtime addons.
 # To do this, we must 'chown cdsw' some directories.
 # Make root directory read/writable by cdsw user
 RUN chown cdsw /
-RUN chown cdsw /
+
+# Change permissions to allow env variables to be pushed to Renviron.site file
+# when the rstudio-cml startup file is run
+# RUN chmod -R 666 /etc/R/Renviron.site
+
 # Add permissions to cdsw user recursively to the common directories that gets touched as part
 # of the engine startup process.
-RUN for i in /bin /var /etc /opt /var/lib/dpkg/ /sbin /usr /home /home/dataiku /runtime-addons; do \
+RUN for i in /bin /var /etc /opt /var/lib/dpkg/ /sbin /usr /home /runtime-addons; do \
  if [ -d ${i} ]; then \
    chown cdsw ${i}; \
    find ${i} -type d -exec chown cdsw {} +; \
@@ -149,9 +103,9 @@ RUN for i in /bin /var /etc /opt /var/lib/dpkg/ /sbin /usr /home /home/dataiku /
 ENV ML_RUNTIME_EDITOR="RStudio" \
 ML_RUNTIME_EDITION="RStudio 2023 Community Runtime"	\
 ML_RUNTIME_SHORT_VERSION="2023.12" \
-ML_RUNTIME_MAINTENANCE_VERSION="2" \
-ML_RUNTIME_FULL_VERSION="2023.12.2" \
-ML_RUNTIME_DESCRIPTION="RStudio Server 2023.09.1" \
+ML_RUNTIME_MAINTENANCE_VERSION="1" \
+ML_RUNTIME_FULL_VERSION="2023.12.1" \
+ML_RUNTIME_DESCRIPTION="RStudio Server 2023.12.1" \
 ML_RUNTIME_KERNEL="R 4.3"
 LABEL com.cloudera.ml.runtime.editor=$ML_RUNTIME_EDITOR \
 com.cloudera.ml.runtime.edition=$ML_RUNTIME_EDITION \

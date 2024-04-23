@@ -1,0 +1,41 @@
+axes.axisbelow      : True     # whether axis gridlines and ticks are below
+axes.edgecolor      : bcbcbc   # axes edge color
+axes.facecolor      : eeeeee   # axes background color
+axes.grid           : True     # display grid or not
+axes.labelcolor     : 555555
+axes.labelsize      : small    # fontsize of the x any y labels
+axes.linewidth      : 1        # edge linewidth
+axes.titlesize      : medium   # fontsize of the a`es title
+figure.dpi          : 144      # figure dots per inch
+figure.figsize      : 6,4      # figure size in inches
+font.cursive        : URW Chancery L
+font.family         : sans-serif
+font.fantasy        : Dingbats
+font.monospace      : Roboto, DejaVu Sans Mono, Nimbus Mono L
+font.sans-serif     : Roboto, DejaVu Sans, Nimbus Sans L, URW Gothic
+font.serif          : DejaVu Serif, Century Schoolbook L, URW Bookman, Nimbus Roman No9 L, URW Palladio
+font.size           : 9.0
+legend.borderpad    : 0.8      # border whitspace in fontsize units
+legend.markerscale  : 2.0      # the relative size of legend markers vs. original
+lines.color         : 7A68A6   # has no affect on plot(); see axes.prop_cycle
+lines.linewidth     : 1.0      # line width in points
+patch.edgecolor     : eeeeee
+patch.facecolor     : 348ABD   # blue
+patch.linewidth     : 0.5      # edge width in points
+savefig.dpi         : 144      # figure dots per inch
+savefig.edgecolor   : white    # figure edgecolor when saving
+savefig.facecolor   : white    # figure facecolor when saving
+xtick.color         : 555555   # color of the tick labels
+xtick.direction     : in       # direction: in or out
+xtick.labelsize     : x-small  # fontsize of the tick labels
+xtick.major.pad     : 6        # distance to major tick label in points
+xtick.major.size    : 0        # major tick size in points
+xtick.minor.pad     : 6        # distance to the minor tick label in points
+xtick.minor.size    : 0        # minor tick size in points
+ytick.color         : 555555   # color of the tick labels
+ytick.direction     : in       # direction: in or out
+ytick.labelsize     : x-small # fontsize of the tick labels
+ytick.major.pad     : 6        # distance to major tick label in points
+ytick.major.size    : 0        # major tick size in points
+ytick.minor.pad     : 6        # distance to the minor tick label in points
+ytick.minor.size    : 0        # minor tick size in points

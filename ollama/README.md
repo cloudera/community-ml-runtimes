@@ -26,4 +26,4 @@ To add a runtime image in CML if it does not exist already, go to the runtime ca
 
 <br><br>
 ## References: 
-1. Know more about about  [ollama](!https://www.ollama.com/)
+1. Know more about about  [ollama](https://www.ollama.com/)

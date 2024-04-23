@@ -8,11 +8,12 @@ This runtime sets up Ollama, associated CUDA libraries and compatible python ver
 
 
 ## Docker build for CML 
-A cml Build is available on dockerhub that can be accessed as follows ( needs docker login) as follows docker.io/<dockerimagename>:version
+A  build is available on dockerhub that can be accessed as follows ( needs docker login) by using the format _docker.io/your-dockerimagename-name:tag_ 
 
-The current build is can be assesed as :
+*A Sample Build can of this runtime can be accessed as follows*
+```
 docker.io/superellipse/cml-pbj-cuda-ollama:v1.2
-
+```
 Built by vishrajagopalan( Github/docker handle - Superellipse) using the command
 docker build -f Dockerfile -t cml-pbj-cuda-ollama:v1.2 .
 
@@ -25,4 +26,4 @@ To add a runtime image in CML if it does not exist already, go to the runtime ca
 
 <br><br>
 ## References: 
-1. Know more about about  [ollama](!https://ollama.com/)
+1. Know more about about  [ollama](!https://www.ollama.com/)

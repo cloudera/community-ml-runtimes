@@ -128,7 +128,6 @@ RUN \
 
 
 ENV ML_RUNTIME_EDITOR="PBJ Workbench" \
-    ML_RUNTIME_EDITION="Standard" \
     ML_RUNTIME_JUPYTER_KERNEL_GATEWAY_CMD="jupyter kernelgateway --config=/home/cdsw/.jupyter/jupyter_kernel_gateway_config.py" \
     JUPYTERLAB_WORKSPACES_DIR=/tmp
 
@@ -146,8 +145,8 @@ RUN \
 ENV ML_RUNTIME_JUPYTER_KERNEL_NAME="python3" \
     ML_RUNTIME_DESCRIPTION="PBJ Workbench Python runtime provided by Cloudera"
 
-ENV ML_RUNTIME_EDITION="Nvidia GPU Ollama" \
-    ML_RUNTIME_DESCRIPTION="This Version Includes Cuda Libraries and Ollama" \
+ENV ML_RUNTIME_EDITION="NVIDIA GPU Ollama" \
+    ML_RUNTIME_DESCRIPTION="This Version Includes CUDA Libraries and Ollama" \
     ML_RUNTIME_CUDA_VERSION="11.8.0"
 
 
@@ -155,7 +154,7 @@ ENV ML_RUNTIME_EDITION="Nvidia GPU Ollama" \
 
 ENV \
     ML_RUNTIME_METADATA_VERSION=2 \ 
-    ML_RUNTIME_SHORT_VERSION="1.2" \
+    ML_RUNTIME_SHORT_VERSION="2" \
     ML_RUNTIME_MAINTENANCE_VERSION=2 \
     ML_RUNTIME_GIT_HASH=522971789d992f2c6fbbb5f8a63301b9a21cbe3e \
     ML_RUNTIME_GBN=50300524

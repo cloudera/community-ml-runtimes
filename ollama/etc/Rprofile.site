@@ -1,4 +1,0 @@
-# Site R configuration.
-
-options(repos=structure(c(CRAN="https://cran.rstudio.com")))
-invisible(Sys.setlocale(category="LC_ALL", locale="en_US.UTF-8"))

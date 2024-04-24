@@ -7,7 +7,7 @@ Note
 RAPIDS require NVIDIA Pascal or better GPUs. You need to use P3 or newer EC2 instances on AWS to meet this requirement.
 ```
 
-## Runtime variants
+### Runtime variants
 
 Community RAPIDS Edition is available via two ML Runtime variants:
 - PBJ Workbench Editor: `docker.io/peterableda/pbj-workbench-rapids:2023.06.7`

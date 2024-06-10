@@ -1,14 +1,55 @@
+#syntax = docker/dockerfile:1.4
 # Copyright 2024 Cloudera. All Rights Reserved.
-FROM --platform=linux/amd64 nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04
-RUN apt-key del 7fa2af80 && apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub
+FROM --platform=linux/amd64 nvidia/cuda:11.8.0-cudnn8-devel-ubuntu20.04 as base
+RUN apt-key del 7fa2af80 && apt-key adv --fetch-keys https://developer.download.nvidia.com/compute/cuda/repos/ubuntu2004/x86_64/3bf863cc.pub 
 
 # Install curl
-RUN apt-get update && apt-get install -y curl
+RUN apt-get update && apt-get install -y curl ca-certificates file
 
-#Use Curl to download ollama
+
+# Install curl
+RUN apt-get update && apt-get install -y curl ca-certificates file 
+
+
+#use curl to download ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
 
 
+#install Babashka for the closure scripts to install default LLMs
+# Set the Babashka version
+ARG BB_VERSION=1.3.190
+
+# Download, verify, and install Babashka
+RUN curl -L https://github.com/babashka/babashka/releases/download/v${BB_VERSION}/babashka-${BB_VERSION}-linux-amd64.tar.gz -o /tmp/bb.tar.gz \
+    && file /tmp/bb.tar.gz \
+    && tar -xzf /tmp/bb.tar.gz -C /tmp \
+    && mv /tmp/bb /usr/local/bin/bb \
+    && chmod +x /usr/local/bin/bb \
+    && rm /tmp/bb.tar.gz
+
+# Test Babashka
+RUN bb --version
+
+# Copy the entrypoint script and make it executable
+COPY app/entrypoint.sh /entrypoint.sh
+RUN chmod +x /entrypoint.sh
+
+# Copy the Clojure script
+COPY app/pull_model.clj /app/pull_model.clj
+
+
+# Map  the Ollama service port
+ENV OLLAMA_PORT=${OLLAMA_PORT:-8080}
+ENV OLLAMA_HOST=${OLLAMA_HOST:-127.0.0.1:$OLLAMA_PORT}
+ENV OLLAMA_BASE_URL=http://$OLLAMA_HOST
+#Document which port we are intending to expose
+EXPOSE 8080
+# Set up the entrypoint to run the entrypoint script
+ENTRYPOINT ["/entrypoint.sh"]
+
+
+# Set up a volume for Ollama's configuration and data persistence
+VOLUME /root/.ollama
 RUN \
   addgroup --gid 8536 cdsw && \
   adduser --disabled-password --gecos "CDSW User" --uid 8536 --gid 8536 cdsw
@@ -142,8 +183,7 @@ RUN \
         -r /build/requirements.txt && \
     rm -rf /build
 
-ENV ML_RUNTIME_JUPYTER_KERNEL_NAME="python3" \
-    ML_RUNTIME_DESCRIPTION="PBJ Workbench Python runtime provided by Cloudera"
+ENV ML_RUNTIME_JUPYTER_KERNEL_NAME="python3"
 
 ENV ML_RUNTIME_EDITION="NVIDIA GPU Ollama" \
     ML_RUNTIME_DESCRIPTION="This Version Includes CUDA Libraries and Ollama" \
@@ -155,7 +195,7 @@ ENV ML_RUNTIME_EDITION="NVIDIA GPU Ollama" \
 ENV \
     ML_RUNTIME_METADATA_VERSION=2 \ 
     ML_RUNTIME_SHORT_VERSION="2" \
-    ML_RUNTIME_MAINTENANCE_VERSION=2 \
+    ML_RUNTIME_MAINTENANCE_VERSION="7" \
     ML_RUNTIME_GIT_HASH=522971789d992f2c6fbbb5f8a63301b9a21cbe3e \
     ML_RUNTIME_GBN=50300524
 

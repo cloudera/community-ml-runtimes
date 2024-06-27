@@ -1,4 +1,8 @@
+<<<<<<< HEAD
+`# Ollama PBJ CUDA Runtime in CML
+=======
 # Ollama PBJ CUDA Runtime in CML
+>>>>>>> upstream/main
 Ollama provides an easy mechanism to set up local selfhosted / private LLMs and multi-modal Models. This runtime is used to setup the Ollama binaries, the associated CUDA and recommended python libraries for accessing OLLAMA in CML. 
 
 ## Why do we need this runtime?
@@ -12,7 +16,11 @@ A  build is available on dockerhub that can be accessed as follows ( needs docke
 
 *A prebuilt version has been uploaded to the Docker hub and can can be accessed as follows*
 ```
+<<<<<<< HEAD
+docker.io/superellipse/ollama-serve-and-pull:v2.7
+=======
 docker.io/superellipse/cml-pbj-cuda-ollama:v1.2
+>>>>>>> upstream/main
 ```
 Built by vishrajagopalan( Github/docker handle - Superellipse) using the command
 docker build -f Dockerfile -t cml-pbj-cuda-ollama:v1.2 .
@@ -22,7 +30,11 @@ To add a runtime image in CML if it does not exist already, go to the runtime ca
 
 
  <br> <br>
+<<<<<<< HEAD
+![Adding Runtime](./picture/AddingRuntimeinCML.png)
+=======
 ![Adding Runtime](./picture/AddingRuntimeinCML.jpg)
+>>>>>>> upstream/main
 
 <br><br>
 ## References: 

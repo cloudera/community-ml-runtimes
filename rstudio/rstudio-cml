@@ -54,8 +54,8 @@ ln -s /tmp/rstudio/sessions/active /home/cdsw/.rstudio/sessions/active
 # https://docs.rstudio.com/ide/server-pro/r-sessions.html#customizing-session-launches.
 # SPARK_DIST_CLASSPATH is treated as a special case to workaround a bug in R
 # with very long environment variables.
-env | grep -v ^SPARK_DIST_CLASSPATH >> /usr/local/lib/R/etc/Renviron.site
-echo "Sys.setenv(\"SPARK_DIST_CLASSPATH\"=\"${SPARK_DIST_CLASSPATH}\")" >> /usr/local/lib/R/etc/Rprofile.site
+env | grep -v ^LD_LIBRARY_PATH >> /usr/local/lib/R/etc/Renviron.site
+#echo "Sys.setenv(\"SPARK_DIST_CLASSPATH\"=\"${SPARK_DIST_CLASSPATH}\")" >> /usr/local/lib/R/etc/Rprofile.site
 
 echo "R_LIBS_USER=/home/cdsw/.local/lib/R/4.0/library" >> /etc/R/Renviron.site
 

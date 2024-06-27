@@ -181,7 +181,8 @@ RUN \
         -r /build/requirements.txt && \
     rm -rf /build
 
-ENV ML_RUNTIME_JUPYTER_KERNEL_NAME="python3"
+ENV ML_RUNTIME_JUPYTER_KERNEL_NAME="python3" \
+    ML_RUNTIME_DESCRIPTION="PBJ Workbench Python runtime provided by Cloudera"
 
 ENV ML_RUNTIME_EDITION="NVIDIA GPU Ollama" \
     ML_RUNTIME_DESCRIPTION="This Version Includes CUDA Libraries and Ollama" \

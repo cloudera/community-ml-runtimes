@@ -27,8 +27,6 @@ RUN curl -L https://github.com/babashka/babashka/releases/download/v${BB_VERSION
     && chmod +x /usr/local/bin/bb \
     && rm /tmp/bb.tar.gz
 
-# Test Babashka
-RUN bb --version
 
 # Copy the entrypoint script and make it executable
 COPY app/entrypoint.sh /entrypoint.sh

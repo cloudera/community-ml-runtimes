@@ -1,5 +1,6 @@
 <<<<<<< HEAD
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Ollama PBJ CUDA Runtime in Cloudera Machine Learning
 Ollama provides an easy mechanism to set up local selfhosted / private LLMs and multi-modal Models. This runtime is used to setup the Ollama binaries, the associated CUDA and recommended python libraries for accessing OLLAMA in Cloudera Machine Learning. 
 =======
@@ -9,6 +10,9 @@ Ollama provides an easy mechanism to set up local selfhosted / private LLMs and 
 =======
 >>>>>>> 8b72ce0 (updated Readme)
 # Ollama PBJ CUDA Runtime in CML
+=======
+`# Ollama PBJ CUDA Runtime in CML
+>>>>>>> a016c0c (updates to the file to include Ollama as a kernel service)
 Ollama provides an easy mechanism to set up local selfhosted / private LLMs and multi-modal Models. This runtime is used to setup the Ollama binaries, the associated CUDA and recommended python libraries for accessing OLLAMA in CML. 
 >>>>>>> 4189210 (Fixed Merge Conflict issues and also Comment on Docker Layer from Peter Ableda (#29))
 
@@ -70,9 +74,18 @@ To add a runtime image in CML if it does not exist already, go to the runtime ca
 =======
 A cml Build is available on dockerhub that can be accessed as follows ( needs docker login) as follows docker.io/<dockerimagename>:version
 
+<<<<<<< HEAD
 The current build is can be assesed as :
 docker.io/superellipse/cml-pbj-cuda-ollama:v1.2
 
+=======
+*A Sample Build can of this runtime can be accessed as follows*
+=======
+>>>>>>> bc71c6a (Fixed the issues in Pull Request review)
+```
+docker.io/superellipse/ollama-serve-and-pull:v2.7
+```
+>>>>>>> a016c0c (updates to the file to include Ollama as a kernel service)
 Built by vishrajagopalan( Github/docker handle - Superellipse) using the command
 docker build -f Dockerfile -t cml-pbj-cuda-ollama:v1.2 .
 
@@ -81,7 +94,7 @@ To add a runtime image in CML if it does not exist already, go to the runtime ca
 
 
  <br> <br>
-![Adding Runtime](./picture/AddingRuntimeinCML.jpg)
+![Adding Runtime](./picture/AddingRuntimeinCML.png)
 
 <br><br>
 ## References: 

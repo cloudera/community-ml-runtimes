@@ -18,7 +18,12 @@ This runtime sets up Ollama, associated CUDA libraries and compatible python ver
 
 
 
+<<<<<<< HEAD
 ## Docker build for Cloudera Machine Learning 
+=======
+## Docker build for CML 
+<<<<<<< HEAD
+>>>>>>> 09dfcfe (merge)
 A  build is available on dockerhub that can be accessed as follows ( needs docker login) by using the format _docker.io/your-dockerimagename-name:tag_ 
 
 *A prebuilt version has been uploaded to the Docker hub and can can be accessed as follows*
@@ -58,4 +63,20 @@ To add a runtime image in CML if it does not exist already, go to the runtime ca
 <br><br>
 ## References: 
 1. Click here to know more about [Ollama](https://www.ollama.com/)
+<<<<<<< HEAD
 2. For more details on this process and how to add this image to Cloudera Machine Learning, please refer to this [Cloudera Documentation Page](https://docs.cloudera.com/machine-learning/cloud/runtimes/topics/ml-runtimes-overview.html)
+=======
+2. For more detials on this process and how to add this image to CML, please refer to this [Cloudera Documentation Page](https://docs.cloudera.com/machine-learning/cloud/runtimes/topics/ml-runtimes-overview.html)
+=======
+A cml Build is available on dockerhub that can be accessed as follows ( needs docker login) as follows docker.io/<dockerimagename>:version
+
+The current build is can be assesed as :
+docker.io/superellipse/cml-pbj-cuda-ollama:1.1
+
+Built by vishrajagopalan( Github/docker handle - Superellipse) using the command
+ docker build --no-cache -t cml-pbj-cuda-ollama:v1.1 -f Dockerfile
+
+## References: 
+1. Know more about about  [ollama](!https://ollama.com/)
+>>>>>>> 209d355 (updated ReadMe)
+>>>>>>> 09dfcfe (merge)

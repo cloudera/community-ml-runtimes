@@ -1,12 +1,14 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # Ollama PBJ CUDA Runtime in Cloudera Machine Learning
 Ollama provides an easy mechanism to set up local selfhosted / private LLMs and multi-modal Models. This runtime is used to setup the Ollama binaries, the associated CUDA and recommended python libraries for accessing OLLAMA in Cloudera Machine Learning. 
 =======
 <<<<<<< HEAD
 `# Ollama PBJ CUDA Runtime in CML
 =======
+=======
+>>>>>>> 8b72ce0 (updated Readme)
 # Ollama PBJ CUDA Runtime in CML
->>>>>>> upstream/main
 Ollama provides an easy mechanism to set up local selfhosted / private LLMs and multi-modal Models. This runtime is used to setup the Ollama binaries, the associated CUDA and recommended python libraries for accessing OLLAMA in CML. 
 >>>>>>> 4189210 (Fixed Merge Conflict issues and also Comment on Docker Layer from Peter Ableda (#29))
 
@@ -21,8 +23,8 @@ A  build is available on dockerhub that can be accessed as follows ( needs docke
 
 *A prebuilt version has been uploaded to the Docker hub and can can be accessed as follows*
 ```
-<<<<<<< HEAD
 docker.io/superellipse/ollama-serve-and-pull:v2.7
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 docker.io/superellipse/ollama-serve-and-pull:v2.7
@@ -33,11 +35,16 @@ docker.io/superellipse/cml-pbj-cuda-ollama:v1.2
 ```
 ## Adding the runtime image in Cloudera Machine Learning
 To add a runtime image in Cloudera Machine Learning if it does not exist already, go to the runtime catalog in control pane, and click on add runtime. you can add the details as below. Replace the runtime image with your own image details and tags if you are building your own docker image.
+=======
+```
+## Adding the runtime image in CML
+To add a runtime image in CML if it does not exist already, go to the runtime catalog in control pane, and click on add runtime. you can add the details as below. Replace the runtime image with your own image details and tags if you are building your own docker image.
+>>>>>>> 8b72ce0 (updated Readme)
 
 
  <br> <br>
-<<<<<<< HEAD
 ![Adding Runtime](./picture/AddingRuntimeinCML.png)
+<<<<<<< HEAD
 =======
 <<<<<<< HEAD
 ![Adding Runtime](./picture/AddingRuntimeinCML.png)
@@ -46,6 +53,8 @@ To add a runtime image in Cloudera Machine Learning if it does not exist already
 >>>>>>> upstream/main
 
 >>>>>>> 4189210 (Fixed Merge Conflict issues and also Comment on Docker Layer from Peter Ableda (#29))
+=======
+>>>>>>> 8b72ce0 (updated Readme)
 <br><br>
 ## References: 
 1. Click here to know more about [Ollama](https://www.ollama.com/)

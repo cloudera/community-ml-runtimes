@@ -27,6 +27,11 @@ RUN curl -L https://github.com/babashka/babashka/releases/download/v${BB_VERSION
     && chmod +x /usr/local/bin/bb \
     && rm /tmp/bb.tar.gz
 
+<<<<<<< HEAD
+=======
+# Test Babashka
+RUN bb --version
+>>>>>>> f90c832 (Updates to Ollama)
 
 # Copy the entrypoint script and make it executable
 COPY app/entrypoint.sh /entrypoint.sh
@@ -181,8 +186,7 @@ RUN \
         -r /build/requirements.txt && \
     rm -rf /build
 
-ENV ML_RUNTIME_JUPYTER_KERNEL_NAME="python3" \
-    ML_RUNTIME_DESCRIPTION="PBJ Workbench Python runtime provided by Cloudera"
+ENV ML_RUNTIME_JUPYTER_KERNEL_NAME="python3"
 
 ENV ML_RUNTIME_EDITION="NVIDIA GPU Ollama" \
     ML_RUNTIME_DESCRIPTION="This Version Includes CUDA Libraries and Ollama" \
@@ -196,10 +200,13 @@ ENV \
 <<<<<<< HEAD
     ML_RUNTIME_SHORT_VERSION="2" \
     ML_RUNTIME_MAINTENANCE_VERSION="7" \
+<<<<<<< HEAD
 =======
     ML_RUNTIME_SHORT_VERSION="1.2" \
     ML_RUNTIME_MAINTENANCE_VERSION=2 \
 >>>>>>> 428663f (Updated runtime image details and explanations in read me)
+=======
+>>>>>>> f90c832 (Updates to Ollama)
     ML_RUNTIME_GIT_HASH=522971789d992f2c6fbbb5f8a63301b9a21cbe3e \
     ML_RUNTIME_GBN=50300524
 

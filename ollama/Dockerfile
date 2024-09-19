@@ -6,11 +6,6 @@ RUN apt-key del 7fa2af80 && apt-key adv --fetch-keys https://developer.download.
 # Install curl
 RUN apt-get update && apt-get install -y curl ca-certificates file
 
-
-# Install curl
-RUN apt-get update && apt-get install -y curl ca-certificates file 
-
-
 #use curl to download ollama
 RUN curl -fsSL https://ollama.com/install.sh | sh
 

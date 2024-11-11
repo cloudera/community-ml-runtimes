@@ -1,4 +1,5 @@
-# Ollama PBJ CUDA Runtime in Cloudera Machine Learning
+
+# Ollama PBJ CUDA Runtime for Cloudera AI ( previously Cloudera Machine Learning)
 Ollama provides an easy mechanism to set up local selfhosted / private LLMs and multi-modal Models. This runtime is used to setup the Ollama binaries, the associated CUDA and recommended python libraries for accessing OLLAMA in Cloudera Machine Learning. 
 
 ## Why do we need this runtime?
